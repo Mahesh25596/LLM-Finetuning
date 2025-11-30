@@ -52,5 +52,20 @@ Notes:
 - Full fine-tuning requires more resources
 - Model performance depends on quality and quantity of training data
 
+Deploy:
+```
+# 1. Prepare data
+python prepare_data.py
+
+# 2. Fine-tune model
+python fine_tune.py
+
+# 3. Evaluate
+python evaluate.py
+
+# 4. Chat
+python chat.py
+```
+
 License:
 MIT License - Free for academic and commercial use
