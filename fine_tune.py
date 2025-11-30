@@ -27,7 +27,7 @@ def create_fine_tune_modelfile():
     modelfile_content = f"""FROM mistral
 
 # System prompt for banking context
-SYSTEM """You are a helpful banking customer support assistant. Provide accurate, clear, and helpful responses to customer questions about banking services."
+SYSTEM "You are a helpful banking customer support assistant. Provide accurate, clear, and helpful responses to customer questions about banking services."
 
 # Fine-tuning parameters
 PARAMETER num_epoch 3
