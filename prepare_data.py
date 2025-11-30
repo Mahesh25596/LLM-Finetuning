@@ -16,13 +16,12 @@ except UnicodeDecodeError:
 # Check if the data loaded correctly
 print("Data loaded successfully. First few rows:")
 print(df.head())
+print(f"Total samples: {len(df)}")
 
-# Format for fine-tuning (using Alpaca format)
+# Format for fine-tuning (ChatML format for better results)
 def format_data(row):
     return {
-        "instruction": "Answer this banking customer question",
-        "input": row['Query'],
-        "output": row['Response']
+        "text": f"<|im_start|>user\n{row['Query']}<|im_end|>\n<|im_start|>assistant\n{row['Response']}<|im_end|>"
     }
 
 formatted_data = [format_data(row) for _, row in df.iterrows()]
@@ -39,4 +38,4 @@ def save_jsonl(data, filename):
 save_jsonl(train_data, 'train.jsonl')
 save_jsonl(val_data, 'val.jsonl')
 
-print("Data preparation complete. Files saved as train.jsonl and val.jsonl")
+print(f"Data preparation complete. Train: {len(train_data)}, Val: {len(val_data)} samples")
